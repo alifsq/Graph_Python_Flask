@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard with Flask and Plotly</title>
+    <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
+</head>
+<body>
+    <h1>Dashboard dengan Flask dan Plotly</h1>
+
+    <!-- Scatter Plot -->
+    <div id="scatter-plot"></div>
+
+    <!-- Bar Chart -->
+    <div id="bar-chart"></div>
+
+    <!-- Line Chart -->
+    <div id="line-chart"></div>
+
+    <!-- Pie Chart -->
+    <div id="pie-chart"></div>
+
+    <!-- Histogram Chart -->
+    <div id="his-chart"></div>
+
+    <!-- Box plot Chart -->
+    <div id="box-chart"></div>
+
+    <script>
+        // Scatter Plot
+        var scatter_data = {{ scatter_plot | safe }};
+        Plotly.newPlot('scatter-plot', scatter_data.data, scatter_data.layout);
+
+        // Bar Chart
+        var bar_data = {{ bar_chart | safe }};
+        Plotly.newPlot('bar-chart', bar_data.data, bar_data.layout);
+
+        // Line Chart
+        var line_data = {{ line_chart | safe }};
+        Plotly.newPlot('line-chart', line_data.data, line_data.layout);
+
+        // Pie Chart
+        var pie_data = {{ pie_chart | safe }};
+        Plotly.newPlot('pie-chart', pie_data.data, pie_data.layout);
+
+        // Histogram Chart
+        var his_data = {{ his_chart | safe }};
+        Plotly.newPlot('his-chart', his_data.data, his_data.layout);
+
+        // Box plot Chart
+        var box_data = {{ box_chart | safe }};
+        Plotly.newPlot('box-chart', box_data.data, box_data.layout);
+    </script>
+</body>
+</html>
